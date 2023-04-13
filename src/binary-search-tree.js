@@ -7,39 +7,57 @@ const { NotImplementedError } = require('../extensions/index.js');
 * using Node from extensions
 */
 class BinarySearchTree {
-
+  constructor(){
+    this.arr = [];
+  }
   root() {
-    throw new NotImplementedError('Not implemented');
+    return (this.arr.length == 0)? null : {data:this.arr[0]};
+    // throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
 
-  add(/* data */) {
-    throw new NotImplementedError('Not implemented');
+  add(data) {
+    this.arr.push(data);
+    //throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
 
-  has(/* data */) {
-    throw new NotImplementedError('Not implemented');
+  has(data) {
+    return this.arr.indexOf(data) >= 0;
+    //throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
+  find(data) {
+    return (this.arr.indexOf(data) >= 0) ? {data:data} : null;
+    // throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
 
-  remove(/* data */) {
-    throw new NotImplementedError('Not implemented');
+  remove(data) {
+    let tmp = [];
+
+    for(let val of this.arr){
+      if (val !== data) tmp.push(val);
+    } 
+    this.arr = tmp;
+    // throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
 
   min() {
-    throw new NotImplementedError('Not implemented');
+    let minval = null;
+    for (let val of this.arr) {minval = (minval == null) ? val : Math.min(minval, val)}
+    return minval;
+    //throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
 
   max() {
-    throw new NotImplementedError('Not implemented');
+    let maxval = null;
+    for (let val of this.arr) {maxval = (maxval == null) ? val : Math.max(maxval, val)}
+    return maxval;
+    // throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
 }
